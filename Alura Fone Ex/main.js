@@ -1,28 +1,24 @@
-function inserir(elemento) {
-
-    let elements = document.querySelector(elemento);
-    res.innerHTML = elements;
-}
- 
-
-let res = document.querySelector('#tel');
 let listadeteclas = document.querySelectorAll('.button');
+let campodigitação = document.querySelector('#tel');
 
-for (let c = 0; c < listadeteclas.length;c++) {
+for( let c = 0; c < listadeteclas.length;c++){
 
-    let res = document.querySelector('#tel');
     let teclas = listadeteclas[c];
-    let valores = String(teclas.value);
-    let item = document.createElement('input');
-    item.text = valores;
-    res.appendChild(item);
-    console.log(valores);
 
     teclas.onclick = function () {
-        inserir(valores)
+        campodigitação.value += teclas.value;
+    }
+
+    teclas.onkeydown = function (evento) {
+        if (evento.code === 'Space') {
+            teclas.classList.add('ativa');
+        }
+    
+
+
+
+    teclas.onkeyup = function (evento) {
+        teclas.classList.remove('ativa');
+    }
     }
 }
-
-
-
-
